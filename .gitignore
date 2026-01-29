@@ -17,6 +17,7 @@ nul
 
 # Office temp files
 ~$*
+*.pptx
 
 # Claude settings (optional - remove if you want to track)
 .claude/
