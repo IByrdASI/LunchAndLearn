@@ -1,4 +1,5 @@
 using EFCoreExampleForLnL.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EFCoreExampleForLnL;
 
@@ -9,15 +10,15 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        Loaded += OnPageLoaded;
     }
 
-    protected override async void OnAppearing()
+    private async void OnPageLoaded(object? sender, EventArgs e)
     {
-        base.OnAppearing();
-
         if (_viewModel == null)
         {
-            _viewModel = Handler?.MauiContext?.Services.GetService<MainPageViewModel>();
+            _viewModel = MauiProgram.Services.GetService<MainPageViewModel>();
+
             if (_viewModel != null)
             {
                 BindingContext = _viewModel;
