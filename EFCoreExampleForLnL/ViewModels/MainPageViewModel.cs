@@ -99,6 +99,10 @@ public partial class MainPageViewModel : ObservableObject
         }
 
         Products.Clear();
+        //The reason we can't use AddRange is because it's a obeservable collection that implements INotifyCollectionChanged, INotifyPropertyChanged.
+        //Meaning it's not really usefull if it's going to be firing off all those events for the GUI anyways.
+
+        //ASG.UserInterface in our library uses our own implementation of ObservableCollection calls https://dev.azure.com/associatedsteelgroup/ASG/_git/ASG.UserInterface?path=/ASG.UserInterface/Extensions/CustObsCollection.cs
         foreach (var product in filtered)
         {
             Products.Add(product);
