@@ -1,0 +1,22 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# JetBrains Rider
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+nul
+
+# Office temp files
+~$*
+
+# Claude settings (optional - remove if you want to track)
+.claude/
